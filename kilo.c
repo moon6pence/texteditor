@@ -5,7 +5,11 @@
 #include <termios.h>
 #include <unistd.h>
 
+/* Global variables */
+
 struct termios orig_termios;
+
+/* Terminal */
 
 void die(const char *s)
 {
@@ -37,6 +41,8 @@ void enableRawMode()
 	if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1)
 		die("tcsetattr");
 }
+
+/* main */
 
 int main()
 {
